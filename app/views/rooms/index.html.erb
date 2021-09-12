@@ -1,0 +1,7 @@
+<ul class="family_lists">
+  <% @rooms.each do |room| %>
+    <li class="family_list">
+      <%= link_to "#{room.name}", room_path(room), class:"family_button" %>
+    </li>
+  <% end %>
+</ul>

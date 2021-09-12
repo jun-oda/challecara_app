@@ -1,0 +1,4 @@
+<div class="message" id="message-<%= message.id %>">
+  <p><%= message.user.nickname %></p>
+    <%= simple_format(h message.content) %>
+</div>

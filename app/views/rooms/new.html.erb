@@ -1,0 +1,5 @@
+<%= form_with model: @room, local: true do |f| %>
+   <%= f.label :name %><br />
+   <p><%= f.text_field :name %></p>
+   <p><%= f.submit "ルームの作成" %><p>
+ <% end %>
