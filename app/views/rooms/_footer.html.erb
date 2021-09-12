@@ -1,5 +1,5 @@
 <footer class="fixed-bottom" id="footer">
-  <%= form_with model: @message do |f| %>
+  <%= form_with model: [@room, @message] do |f| %>
     <div class="form-group">
       <%= f.text_area :content, class: 'form-control', rows: '1', maxlength: '500' %>
     </div>
