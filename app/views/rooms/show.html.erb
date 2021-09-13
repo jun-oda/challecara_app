@@ -1,0 +1,10 @@
+<h1>Chat Room</h1>
+
+<form id="test_form">
+  <input id="content" type="text" />
+  <input id="picture" type="file" />
+</form>
+
+<div id="messages">
+<%= ::Temple::Utils.escape_html((render @messages)) %>
+</div>

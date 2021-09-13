@@ -3,6 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.4'
 
+gem 'jquery-rails', '4.3.1'
+gem 'carrierwave', '1.2.2'
+gem 'carrierwave-data-uri'
+
+gem 'slim-rails'
 # Devise
 gem 'devise'
 

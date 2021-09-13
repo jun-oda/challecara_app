@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rooms/show'
   root 'top_page#index'
   resources :calendars
   devise_for :users
