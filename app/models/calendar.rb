@@ -1,3 +1,3 @@
 class Calendar < ApplicationRecord
-  has_many :calendars
+  has_many :messages, dependent: :destroy
 end

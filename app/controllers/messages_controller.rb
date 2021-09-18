@@ -19,27 +19,19 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
 
-    respond_to do |format|
-      if @message.save
-        format.html { redirect_to @calendar, notice: "Message was successfully created." }
-        format.json { render :show, status: :created, location: @message }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
+    if @message.save
+      redirect_to calendars_path
+    else
+      render new_calendar_path
     end
   end
 
   # PATCH/PUT /messages/1 or /messages/1.json
   def update
-    respond_to do |format|
-      if @message.update(message_params)
-        format.html { redirect_to @message, notice: "Message was successfully updated." }
-        format.json { render :show, status: :ok, location: @message }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
+    if @message.update(message_params)
+      redirect_to calendars_path
+    else
+      render edit_calendar_path
     end
   end
 

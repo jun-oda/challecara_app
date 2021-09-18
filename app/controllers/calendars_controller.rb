@@ -9,7 +9,7 @@ class CalendarsController < ApplicationController
     
       def show
         @calendar = Calendar.find(params[:id])
-        @messages = Message.find_by(calendar_id: params[:id])
+        @messages = Message.all
       end
     
       def create
@@ -25,12 +25,10 @@ class CalendarsController < ApplicationController
     
       def edit
         @calendar = Calendar.find(params[:id])
-        @messages = Message.find_by(calendar_id: params[:id])
       end
     
       def update
         @calendar = Calendar.find(params[:id])
-        @messages = Message.find_by(calendar_id: params[:id])
         if @calendar.update(calendar_parameter)
           redirect_to calendars_path, notice: "編集しました"
         else
