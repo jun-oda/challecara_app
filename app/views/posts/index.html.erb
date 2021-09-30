@@ -1,0 +1,102 @@
+<section class="section">
+  <h1 class="title">サンプルアプリ</h1>
+  <p>現在時刻<%= DateTime.now %></p>
+
+  <%= form_with url: posts_path, method: :get do |f| %>
+    <div class="field has-addons">
+      <div class="control">
+        <%= f.text_field :keyword, value: @search_keyword, class: "input", placeholder: "検索キーワード"%>
+      </div>
+      <div class="control">
+        <%= f.submit "検索", class: "button is-info" %>
+      </div>
+      <div class="control">
+        <%= link_to "リセット", posts_path, class: "button is-link" %>
+      </div>
+
+    </div>
+  <% end %>
+
+</section>
+
+<!-- Turbo Frame の機能を使い部分的な書き換えをする場合には、<turbo-frame>タグで囲ってあげる --> 
+<turbo-frame id="posts">
+  <section class="section">
+    
+    <!-- Turbo Stream の機能を使うには、turbo_stream_from でリッスンするチャンネルを指定する -->
+    <% if @search_keyword.present? %>
+      <%= turbo_stream_from "post-info" %>
+    <% else %>
+      <%= turbo_stream_from "post-list" %>
+    <% end %>
+
+    <% if !@search_keyword.present? %>
+      <%= form_with model: Post, url: posts_path, method: :post, data: { controller: "posts", action: "turbo:submit-end->posts#reset" } do |f| %>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">ハンドルネーム</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <%= f.text_field :name, class: "input" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">コメント</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <%= f.text_field :comment, class: "input", data: { "posts-target": "comment"} %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <!-- Left empty for spacing -->
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <%= f.submit "書き込み", class: "button is-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+    <% end %>
+
+  </section>
+  <section class="section">
+
+    <div id="post-info-el">
+    </div>
+  
+    <% if @posts.present? %>
+      <% if @search_keyword.present? %>
+        「<%= @search_keyword %>」の検索結果
+      <% end %>
+
+      <div id="post-list-el">
+        <% @posts.each do |post|%>
+          <%= render partial: "post", :locals => { post: post }  %>
+        <% end %>
+      </div>
+    <% else %>
+      <% if @search_keyword.present? %>
+        「<%= @search_keyword %>」を含む投稿はありません。
+      <% else %>
+        投稿はありません。
+      <% end %>
+    <% end %>
+    
+  </section>
+</turbo-frame>
