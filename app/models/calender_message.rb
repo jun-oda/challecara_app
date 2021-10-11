@@ -1,2 +1,0 @@
-class CalenderMessage < ApplicationRecord
-end
