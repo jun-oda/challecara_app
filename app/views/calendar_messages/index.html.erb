@@ -1,7 +1,7 @@
 <%= form_with(model: @calendar_message, local: true) do |form| %>
 
-  <div class="title">
-    <%= form.text_field :title, placeholder: "メッセージを入力" %>
+  <div class="message">
+    <%= form.text_field :message, placeholder: "メッセージを入力" %>
   </div>
 
   <div class="submit">
