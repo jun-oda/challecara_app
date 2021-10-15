@@ -1,0 +1,10 @@
+<%= form_with(model: @calendar_message, local: true) do |form| %>
+
+  <div class="title">
+    <%= form.text_field :title, placeholder: "メッセージを入力" %>
+  </div>
+
+  <div class="submit">
+    <%= form.submit "送信" %>
+  </div>
+<% end %>
