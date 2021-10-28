@@ -1,4 +1,4 @@
-<%= form_with(model: @calendar_message, url: calendar_calendar_messages_path, local: true) do |form| %>
+<!--<%= form_with(model: @calendar_message, url: calendar_calendar_messages_path, local: true) do |form| %>
 
   
   <div class="message">
@@ -9,21 +9,63 @@
     <%= form.submit "送信" %>
   </div>
 
-
-  <h1>投稿一覧</h1>
-  <table>
-    <tr>
-      <tr>名前</tr>
-      <tr>メッセージ</tr>
-    </tr>
-    <% @messages.each do |post|%>
-    <tr>
-      <td><% = post.user %></td>
-      <td><% = post.message %></td>
-    </tr>
-    <% end %>
-  </table>
+<% end %>-->
 
 
+# -----------------------------
+<h1>tチャット一覧</h1>
 
+<%= form_with(model: @calendar_message, url: calendar_calendar_messages_path, local: true) do |form| %>
+
+  <% if @calendar_message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@calendar_message.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @calendar_message.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="message">
+　   <%= form.text_field :message, placeholder: "メッセージを入力" %>
+  </div>
+  
+  <div class="submit">
+    <%= form.submit "送信" %>
+  </div>
 <% end %>
+
+# -----------------------------
+
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Messages</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @calendars.each do |calendar_messages| %>
+      <tr>
+        
+        
+        <td><%= calendar_messages.calendar_messages %></td>
+        <!--<td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '戻る', calendar.url_for_previous_view  %>
+
+
