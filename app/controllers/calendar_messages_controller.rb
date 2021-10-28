@@ -3,6 +3,7 @@ class CalendarMessagesController < ApplicationController
     #@calendar = Calendar.find(params[:id])
     @messages = CalendarMessage.find_by(calendar_id: params[:id])
     @calendar_message = CalendarMessage.new
+    @messages = @group.messages.includes(:user)
   end
 
   def create
