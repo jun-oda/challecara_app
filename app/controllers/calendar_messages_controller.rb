@@ -1,4 +1,5 @@
 class CalendarMessagesController < ApplicationController
+  before_action :authenticate_user!
   def index
     #@calendar = Calendar.find(params[:id])
     @messages = CalendarMessage.find_by(calendar_id: params[:id])
