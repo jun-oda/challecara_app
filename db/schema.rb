@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_29_052159) do
+ActiveRecord::Schema.define(version: 2021_10_30_122725) do
 
-  create_table "calendar_messages", charset: "utf8mb4", force: :cascade do |t|
+  create_table "calendar_messages", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.text "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.bigint "calendar_id", null: false
+    t.string "image"
     t.index ["calendar_id"], name: "index_calendar_messages_on_calendar_id"
     t.index ["user_id"], name: "index_calendar_messages_on_user_id"
   end
 
-  create_table "calendars", charset: "utf8mb4", force: :cascade do |t|
+  create_table "calendars", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.datetime "start_time"
@@ -30,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_10_29_052159) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
