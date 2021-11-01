@@ -1,7 +1,5 @@
-class CalendarMessage < ApplicationRecord 
-
-  validates :message, presence: true, unless: :image?
+class CalendarMessage < ApplicationRecord
+  validates :message, presence: true
   belongs_to :user
   belongs_to :calendar
-  belongs_to :group
 end
