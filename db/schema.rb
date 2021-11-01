@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_10_11_102753) do
     t.bigint "user_id", null: false
     t.bigint "calendar_id", null: false
     t.index ["calendar_id"], name: "index_calendar_messages_on_calendar_id"
-    t.index ["user_id"], name: "index_calendar_messages_on_user_id"
+    t.index ["user_id"], name: "index_calender_messages_on_user_id"
   end
 
   create_table "calendars", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
