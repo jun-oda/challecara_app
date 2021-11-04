@@ -8,6 +8,8 @@ gem 'devise'
 
 gem 'simple_calendar', '~> 2.0'
 
+gem 'carrierwave'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 # Use mysql as the database for Active Record
@@ -50,15 +52,7 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#ここからhotwire
-# redis がコメントアウトされているのでコメントアウトを外す
-
-
-# hotwire-rails と stimulus-railsを書き足す
-gem 'hotwire-rails'
-gem 'stimulus-rails'
-
-# お好みでCSSのライブラリなど
-gem "bulma-rails", "~> 0.9.1"
