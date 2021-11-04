@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_30_122725) do
+ActiveRecord::Schema.define(version: 2021_11_04_081313) do
 
   create_table "calendar_messages", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.text "message"
@@ -31,6 +31,21 @@ ActiveRecord::Schema.define(version: 2021_10_30_122725) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "group_users", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_group_users_on_group_id"
+    t.index ["user_id"], name: "index_group_users_on_user_id"
+  end
+
+  create_table "groups", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -46,4 +61,6 @@ ActiveRecord::Schema.define(version: 2021_10_30_122725) do
 
   add_foreign_key "calendar_messages", "calendars"
   add_foreign_key "calendar_messages", "users"
+  add_foreign_key "group_users", "groups"
+  add_foreign_key "group_users", "users"
 end
