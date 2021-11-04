@@ -1,4 +1,5 @@
 class CalendarsController < ApplicationController
+  before_action :authenticate_user!
     def index
         @calendars = Calendar.all
       end
@@ -12,7 +13,7 @@ class CalendarsController < ApplicationController
       end
     
       def create
-        Calendar.create(calendar_parameter)
+        Calendar.create(calendar_params)
         redirect_to calendars_path
       end
     
@@ -28,7 +29,7 @@ class CalendarsController < ApplicationController
     
       def update
         @calendar = Calendar.find(params[:id])
-        if @calendar.update(calendar_parameter)
+        if @calendar.update(calendar_params)
           redirect_to calendars_path, notice: "編集しました"
         else
           render 'edit'
@@ -37,7 +38,7 @@ class CalendarsController < ApplicationController
     
       private
     
-      def calendar_parameter
+      def calendar_params
         params.require(:calendar).permit(:title, :content, :start_time)
       end
     
