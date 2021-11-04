@@ -9,7 +9,21 @@
     <%= form.submit "送信" %>
   </div>
 
-<% end %>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="members.scss" type="text/css">
+</head>
+<body>
+    <% @allmessages.each do |message| %>
+        <%= message.message %><br>
+    <% end %>
+</body>
+
+<%end%>
+
+
+
+
 
 
 
