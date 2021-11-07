@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :calendars do
     resources :calendar_messages, only: [:index, :create, :destroy]
   end
-  resources :group, only: [:index, :show, :new, :create]
+  resources :groups, only: [:index, :show, :new, :create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

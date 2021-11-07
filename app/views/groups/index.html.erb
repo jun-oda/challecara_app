@@ -1,0 +1,10 @@
+<div><%=link_to "グループを作成する",new_group_path %></div>
+
+<div><p>招待されているグループ</p></div>
+
+
+<div><p>グループ一覧</p></div>
+<% @groups.each do |group| %>
+    <%= link_to group.name, calendars_path(group_id: group.id) %>
+    <%= group.users.count %>
+<% end %>

@@ -9,6 +9,8 @@ class GroupsController < ApplicationController
 
     if !@group.users.include?(current_user)
       @group.users << current_user
+      flash[:notice] = "グループに加入しました"
+      render groups_path
     end
   end
 
@@ -27,6 +29,6 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name, :user_id [])
+    params.require(:group).permit(:name)
   end
 end

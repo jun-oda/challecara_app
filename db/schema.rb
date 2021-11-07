@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_04_081313) do
+ActiveRecord::Schema.define(version: 2021_11_05_101854) do
 
-  create_table "calendar_messages", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "calendar_messages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -23,15 +23,17 @@ ActiveRecord::Schema.define(version: 2021_11_04_081313) do
     t.index ["user_id"], name: "index_calendar_messages_on_user_id"
   end
 
-  create_table "calendars", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "calendars", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "group_id", null: false
+    t.index ["group_id"], name: "index_calendars_on_group_id"
   end
 
-  create_table "group_users", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "group_users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "group_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -40,13 +42,13 @@ ActiveRecord::Schema.define(version: 2021_11_04_081313) do
     t.index ["user_id"], name: "index_group_users_on_user_id"
   end
 
-  create_table "groups", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "groups", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -61,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_11_04_081313) do
 
   add_foreign_key "calendar_messages", "calendars"
   add_foreign_key "calendar_messages", "users"
+  add_foreign_key "calendars", "groups"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
 end
