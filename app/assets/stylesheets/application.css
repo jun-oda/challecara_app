@@ -14,22 +14,22 @@
  *= require_tree .
  *= require_self
  */
- .oneArea {
-    background: linear-gradient(180deg, #f0bc68 0%, #f0bc68 50%, #c4d7d1 50%, #c4d7d1 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 400px;
-  }
-  .oneArea p {
-    color: #fff;
+
+  
+  p {
+    color:darkgreen;
     font-size: 40px;
     font-weight: bold;
   }
-  .col-6{
+  head{
     background-color:slategrey;
   }
   .col-6{
-    background-color:rgb(63, 46, 4);transition: 1s;
+    background-color:rgb(63, 46, 4);
+  }
+  .nav-item nav-link active{
+    background-color:darkgreen;
+  }
+  .row {
+    background-color: darkred;
   }
