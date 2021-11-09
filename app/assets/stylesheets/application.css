@@ -27,4 +27,9 @@
     font-size: 40px;
     font-weight: bold;
   }
-  
+  .col-6{
+    background-color:slategrey;
+  }
+  .col-6{
+    background-color:rgb(63, 46, 4);transition: 1s;
+  }
