@@ -1,10 +1,35 @@
+<br>
 <div><%=link_to "グループを作成する",new_group_path %></div>
+<br>
 
-<div><p>招待されているグループ</p></div>
-
-
-<div><p>グループ一覧</p></div>
+<h4>知り合いのグループかも？</h4>
 <% @groups.each do |group| %>
-    <%= link_to group.name, calendars_path(group_id: group.id) %>
-    <%= group.users.count %>
+  <% if !group.users.include?(current_user) %>
+    <tr>
+      <td><%= link_to group.name, group_path(group) %></td>
+    </tr>
+	<% end %>
 <% end %>
+
+<br><br>
+
+<h2>グループ一覧</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">グループ名</th>
+      <th scope="col">メンバー数</th>
+    </tr>
+  </thead>
+  <tbody>
+		<% @groups.each do |group| %>
+      <% if group.users.include?(current_user) %>
+        <tr>
+          <td><%= link_to group.name, group_path(group) %></td>
+          <td><%= image_tag 'member.png',width: '3%', height: '11%' %>×<%= group.users.count %></td>
+        </tr>
+      <% end %>  
+		<% end %>
+  </tbody>
+</table>	

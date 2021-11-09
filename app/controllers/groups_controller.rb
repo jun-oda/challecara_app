@@ -5,22 +5,25 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find_by(id: params[:id])
+    @group = Group.find(params[:id])
 
     if !@group.users.include?(current_user)
       @group.users << current_user
       flash[:notice] = "グループに加入しました"
-      render groups_path
+      redirect_to groups_path
+    else
+      redirect_to group_calendars_path(group_id: @group)
     end
   end
 
   def new
     @group = Group.new
-    @group.users << current_user
   end
 
   def create
-    if Group.create(group_params)
+    @group = Group.new(group_params)
+    if @group.save
+      @group.users << current_user
       redirect_to groups_path, notice: 'グループを作成しました'
     else
       render :new

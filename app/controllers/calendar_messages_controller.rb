@@ -3,6 +3,7 @@ class CalendarMessagesController < ApplicationController
   def index
     
     @calendar_message = CalendarMessage.new
+    @calendar = Calendar.find(params[:calendar_id])
   end
 
   def create

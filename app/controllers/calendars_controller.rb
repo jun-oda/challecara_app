@@ -1,22 +1,17 @@
 class CalendarsController < ApplicationController
   before_action :authenticate_user!
     def index
+      @group = Group.find(params[:group_id])
       @calendars = Calendar.where(group_id: params[:group_id])
-      #@calendars = Calendar.all
-      
     end
   
     def new
       @calendar = Calendar.new
     end
   
-    def show
-      @calendar = Calendar.find(params[:id])
-    end
-  
     def create
-      Calendar.create(calendar_params)
-      redirect_to calendars_path
+      Calendar.create(create_calendar_params)
+      redirect_to group_calendars_path
     end
   
     def destroy
@@ -31,8 +26,8 @@ class CalendarsController < ApplicationController
   
     def update
       @calendar = Calendar.find(params[:id])
-      if @calendar.update(calendar_params)
-        redirect_to calendars_path, notice: "編集しました"
+      if @calendar.update(update_calendar_params)
+        redirect_to calendar_path, notice: "編集しました"
       else
         render 'edit'
       end
@@ -40,8 +35,12 @@ class CalendarsController < ApplicationController
   
     private
   
-    def calendar_params
-      params.require(:calendar).permit(:title, :content, :start_time, :group_id)
+    def create_calendar_params
+      params.require(:calendar).permit(:title, :content, :start_time).merge(group_id: params[:group_id])
+    end
+
+    def update_calendar_params
+      params.require(:calendar).permit(:title, :content, :start_time)
     end
     
 end

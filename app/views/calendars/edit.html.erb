@@ -10,14 +10,19 @@
     <%= form.datetime_select :start_time %>
   </div>
 
-  <div class="content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+  <div style="display:inline-flex">
+    <div class="content">
+      <%= form.label :content %>
+      <%= form.text_field :content %>
+    </div>
+
+
+    <div class="submit">
+      <%= form.submit "完了"%>
+    </div>
   </div>
-
-
-  <div class="submit">
-    <%= form.submit %>
-  </div>
-
 <% end %>
+
+<br>
+<%= link_to "カレンダーへ", group_calendars_path(@calendar.group_id) %>
+<%= link_to "チャットへ", calendar_calendar_messages_path(@calendar.id) %>
