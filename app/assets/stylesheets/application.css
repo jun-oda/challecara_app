@@ -26,10 +26,29 @@
   }
   .col-6{
     background-color:rgb(63, 46, 4);
+    padding:  0px;
   }
   .nav-item nav-link active{
     background-color:darkgreen;
   }
   .row {
     background-color: darkred;
+  }
+
+  .li {
+    background-color:rgb(1, 37, 1);
+  }
+  
+  .td {
+    text-decoration:none;
+    background-color:rgb(63, 46, 4);
+  }
+  div{
+    background-color:rgb(63, 46, 4);
+    padding:  0px;
+  }
+
+  h2{
+    background-color: burlywood;
+    padding:  0px;
   }
