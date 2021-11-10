@@ -1,18 +1,18 @@
 <%= form_with(model: @calendar, local: true) do |form| %>
 
   <div class="title">
-    <%= form.label :title %>
+    <%= form.label :イベント %>
     <%= form.text_field :title %>
   </div>
 
     <div class="time">
-    <%= form.label :start_time %>
+    <%= form.label :開始時間 %>
     <%= form.datetime_select :start_time %>
   </div>
 
   <div style="display:inline-flex">
     <div class="content">
-      <%= form.label :content %>
+      <%= form.label :メモ %>
       <%= form.text_field :content %>
     </div>
 
