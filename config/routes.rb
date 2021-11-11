@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   root 'top_page#index'
+  
+  
+ 
   devise_for :users
   resources :groups, only: [:index, :show, :new, :create] do
     resources :calendars, only: [:index, :new, :create]
   end
   resources :calendars, only: [:edit, :update, :destroy] do
     resources :calendar_messages, only: [:index, :create, :destroy]
+    resources :users, only: [:index, :edit, :update]
+    #resources :groups, only: [:new, :create, :edit, :update] # ここで設定する。
   end
 
   resources :invites, only: [:new, :create, :destroy]

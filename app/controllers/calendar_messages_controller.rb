@@ -1,13 +1,15 @@
 class CalendarMessagesController < ApplicationController
   before_action :authenticate_user!
-  def index
-    
+  def index    
     @calendar_message = CalendarMessage.new
-    @calendar = Calendar.find(params[:calendar_id])
+    #message保存用のdb（CalendarMessageモデル）新規作成？
+    @allmessages = CalendarMessage.select(:message).where(calendar_id: params[:calendar_id])
+    #予定ごとのメッセージ履歴を引っ張る
   end
 
   def create
     @calendar_message = CalendarMessage.create(calendar_message_params)
+  #任意のmessagedb（CalendarMessageモデル）にmessageを追加？
     redirect_to calendar_calendar_messages_path
   end
 
