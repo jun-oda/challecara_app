@@ -2,8 +2,9 @@ class CalendarMessagesController < ApplicationController
   before_action :authenticate_user!
   def index    
     @calendar_message = CalendarMessage.new
+    @calendar = Calendar.find(params[:calendar_id])
     #message保存用のdb（CalendarMessageモデル）新規作成？
-    @allmessages = CalendarMessage.select(:message).where(calendar_id: params[:calendar_id])
+    @calendar_messages = CalendarMessage.where(calendar_id: params[:calendar_id]).order(updated_at: :desc)
     #予定ごとのメッセージ履歴を引っ張る
   end
 
@@ -14,6 +15,9 @@ class CalendarMessagesController < ApplicationController
   end
 
   def destroy
+    @calendar_message = CalendarMessage.find(params[:id])
+    @calendar_message.destroy
+    redirect_to calendar_calendar_messages_path, notice:"削除しました"
   end
 
   def calendar_message_params
