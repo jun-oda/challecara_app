@@ -28,7 +28,7 @@
       <% if group.users.include?(current_user) %>
         <tr>
           <td><%= link_to group.name, group_path(group) %></td>
-          <td><%= image_tag 'member.png',width: '3%', height: '11%' %>×<%= group.users.count %></td>
+          <td><%= image_tag 'member.png',width: '7%', height: '15%' %>×<%= group.users.count %></td>
           <td><%= link_to 'このグループに招待', new_invite_path(group_id: group) %></td>
         </tr>
       <% end %>  

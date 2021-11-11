@@ -2,18 +2,6 @@
 <br>
 <br>
 <%= form_with(model: @calendar_message, url: calendar_calendar_messages_path, local: true) do |form| %>
-
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="members.scss" type="text/css">
-</head>
-<body>
-    <% @allmessages.each do |message| %>
-        <%= message.message %><br>
-    <% end %>
-</body>
-
-
   <div class="field">
     <%= form.file_field :image %>
   </div>
@@ -28,8 +16,13 @@
     </div>
   </div>
 
-
-
 <% end %>
 
 
+<% @calendar_messages.each do |message| %>
+    <%= message.user.username %>:
+    <%= message.message %>
+    <%= image_tag message.image.to_s %>
+    <%= message.created_at.to_s(:datetime) %>
+    <br>
+<% end %>
