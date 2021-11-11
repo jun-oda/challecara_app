@@ -1,4 +1,16 @@
 <%= form_with(model: @calendar_message, url: calendar_calendar_messages_path, local: true) do |form| %>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="members.scss" type="text/css">
+</head>
+<body>
+    <% @allmessages.each do |message| %>
+        <%= message.message %><br>
+    <% end %>
+</body>
+
+
   <div class="field">
     <%= form.file_field :image %>
   </div>
@@ -12,16 +24,6 @@
     <%= form.submit "送信" %>
   </div>
 
-
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="members.scss" type="text/css">
-</head>
-<body>
-    <% @allmessages.each do |message| %>
-        <%= message.message %><br>
-    <% end %>
-</body>
 
 
 <% end %>
