@@ -1,0 +1,13 @@
+<%= form_with(model: @invite, local: true) do |form| %>
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+  <%= form.hidden_field :group_id, :value => params[:group_id] %>
+  <div style="display:inline-flex">
+    <div class="email">
+      <%= form.text_field :email, placeholder: "招待相手のメールアドレス" %>
+    </div>
+    
+    <div class="submit">
+      <%= form.submit "送信" %>
+    </div>
+  </div>
+<% end %>

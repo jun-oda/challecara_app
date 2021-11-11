@@ -6,7 +6,7 @@
 <% @groups.each do |group| %>
   <% if !group.users.include?(current_user) %>
     <tr>
-      <td><%= link_to group.name, group_path(group) %></td>
+      <td><%= link_to group.name, group_path(group), data: { confirm: 'グループに参加しますか？' } %></td>
     </tr>
 	<% end %>
 <% end %>
@@ -20,6 +20,7 @@
     <tr>
       <th scope="col">グループ名</th>
       <th scope="col">メンバー数</th>
+      <th scope="col">招待</th>
     </tr>
   </thead>
   <tbody>
@@ -28,6 +29,7 @@
         <tr>
           <td><%= link_to group.name, group_path(group) %></td>
           <td><%= image_tag 'member.png',width: '3%', height: '11%' %>×<%= group.users.count %></td>
+          <td><%= link_to 'このグループに招待', new_invite_path(group_id: group) %></td>
         </tr>
       <% end %>  
 		<% end %>

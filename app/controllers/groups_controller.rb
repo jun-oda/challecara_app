@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
 
     if !@group.users.include?(current_user)
       @group.users << current_user
-      flash[:notice] = "グループに加入しました"
+      flash[:notice] = "グループに参加しました"
       redirect_to groups_path
     else
       redirect_to group_calendars_path(group_id: @group)

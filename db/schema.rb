@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_101854) do
+ActiveRecord::Schema.define(version: 2021_11_11_084043) do
 
   create_table "calendar_messages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "message"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 2021_11_05_101854) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "invites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "email"
+    t.index ["group_id"], name: "index_invites_on_group_id"
+    t.index ["user_id"], name: "index_invites_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -66,4 +77,6 @@ ActiveRecord::Schema.define(version: 2021_11_05_101854) do
   add_foreign_key "calendars", "groups"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
+  add_foreign_key "invites", "groups"
+  add_foreign_key "invites", "users"
 end
