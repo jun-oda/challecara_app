@@ -18,6 +18,8 @@ class CalendarMessagesController < ApplicationController
     @calendar_message.destroy
     redirect_to calendars_path, notice:"削除しました"
   end
+  
+  helper_method :destroy
 
   def calendar_message_params
     params.require(:calendar_message).permit(:message, :image)
