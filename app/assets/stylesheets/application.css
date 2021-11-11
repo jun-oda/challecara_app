@@ -14,18 +14,21 @@
  *= require_tree .
  *= require_self
  */
-
-  
+ 
+ @import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
   p {
     color:rgb(1, 37, 1);
     font-size: 40px;
     font-weight: bold;
+    background-color:rgb(243, 213, 138);
+    font-family: 'Sawarabi Mincho', sans-serif;
   }
   head{
     background-color:slategrey;
+    font-family: 'Sawarabi Mincho', sans-serif;
   }
   .col-6{
-    background-color:rgb(63, 46, 4);
+    background-color:rgb(243, 213, 138);
     padding:  0px;
   }
   .nav-item nav-link active{
@@ -41,14 +44,25 @@
   
   .td {
     text-decoration:none;
-    background-color:rgb(63, 46, 4);
+    background-color:rgb(207, 198, 176);
   }
   div{
-    background-color:rgb(63, 46, 4);
+    background-color:rgb(235, 222, 190);
     padding:  0px;
   }
 
   h2{
     background-color: burlywood;
     padding:  0px;
+    font-family: 'Sawarabi Mincho', sans-serif;
   }
+.navbar-expand-lg{
+  background-color: burlywood;
+}
+.navbar-bland{
+  background-color: burlywood;
+}
+.navbar navbar-expand-lg navbar-dark bg-info{
+  background-color: burlywood;
+}
+
