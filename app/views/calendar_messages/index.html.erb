@@ -1,15 +1,24 @@
 <%= form_with(model: @calendar_message, url: calendar_calendar_messages_path, local: true) do |form| %>
 
-<head>
+<table>
+
+  <thead>
     <meta charset="utf-8">
     <link rel="stylesheet" href="members.scss" type="text/css">
-</head>
-<body>
-    <% @allmessages.each do |message| %>
-        <%= message.message %><br>
-    <% end %>
-</body>
+  </thead>
 
+  <tbody>
+    <% @allmessages.each do |message| %>
+      <tr>
+        
+        <td><%= message.message%></td>
+        <td><%= link_to 'Destroy', destroy, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
 
   <div class="field">
     <%= form.file_field :image %>
