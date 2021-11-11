@@ -29,8 +29,11 @@ services:
     security_opt:
       - seccomp:unconfined
     platform: linux/x86_64 # M1チップ対応のため追記
-    image: mysql:5.7
+
+    image: mysql:8.0
     container_name: app_db
+
+   
 volumes:
   bundle-data:
   db-data:

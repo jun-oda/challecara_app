@@ -1,4 +1,5 @@
 class CalendarsController < ApplicationController
+  before_action :authenticate_user!
     def index
         @calendars = Calendar.all
       end
