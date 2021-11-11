@@ -3,7 +3,8 @@ class CalendarMessagesController < ApplicationController
   def index    
     @calendar_message = CalendarMessage.new
     #message保存用のdb（CalendarMessageモデル）新規作成？
-    @allmessages = CalendarMessage.select("message")
+    @allmessages = CalendarMessage.select(:message).where(calendar_id: params[:calendar_id])
+    #予定ごとのメッセージ履歴を引っ張る
   end
 
   def create
