@@ -1,3 +1,6 @@
+<%= link_to "カレンダーへ", group_calendars_path(@calendar.group_id) %>
+<br>
+<br>
 <%= form_with(model: @calendar_message, url: calendar_calendar_messages_path, local: true) do |form| %>
 
 <head>
@@ -15,13 +18,14 @@
     <%= form.file_field :image %>
   </div>
 
-
-  <div class="message">
-    <%= form.text_field :message, placeholder: "メッセージを入力" %>
-  </div>
-  
-  <div class="submit">
-    <%= form.submit "送信" %>
+  <div style="display:inline-flex">
+    <div class="message">
+      <%= form.text_area :message, placeholder: "メッセージを入力" %>
+    </div>
+    
+    <div class="submit">
+      <%= form.submit "送信" %>
+    </div>
   </div>
 
 
