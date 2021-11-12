@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
  
   devise_for :users
-  resources :groups, only: [:index, :show, :new, :create] do
+  resources :groups, only: [:index, :show, :new, :create, :destroy, :edit, :update] do
     resources :calendars, only: [:index, :new, :create]
   end
   resources :calendars, only: [:edit, :update, :destroy] do

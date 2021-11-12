@@ -1,0 +1,26 @@
+<% if @group.users.include?(current_user) %>
+  <%= form_with(model: @group, local: true) do |form| %>
+    <div style="display:inline-flex">
+      <div class="message">
+        <%= form.text_field :name, placeholder: "グループ名を入力" %>
+      </div>
+      
+      <div class="submit">
+        <%= form.submit "保存" %>
+      </div>
+    </div>  
+  <% end %>
+<% end %>
+
+<br>
+<h4>メンバー</h4>
+<ul class="list-group">
+  <% @group.users.each do |member| %>
+    <li class="list-group-item"><%= member.username %></li>
+  <% end %>
+</ul>
+<br>
+
+<% if @group.users.include?(current_user) %>
+  <%= link_to '退会', group_path(params[:id]), method: :delete, data: { confirm: '本当に退会しますか？' }, class: "btn btn-sm btn-danger" %>
+<% end %>  
