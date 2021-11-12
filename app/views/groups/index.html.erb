@@ -3,13 +3,25 @@
 <br>
 
 <h4>知り合いのグループかも？</h4>
-<% @groups.each do |group| %>
-  <% if !group.users.include?(current_user) %>
+
+<table class="table table-striped">
+  <thead>
     <tr>
-      <td><%= link_to group.name, group_path(group), data: { confirm: 'グループに参加しますか？' } %></td>
+      <th scope="col">グループ名</th>
+      <th scope="col">メンバー</th>
+      <th scope="col">招待を送ったユーザー</th>
     </tr>
-	<% end %>
-<% end %>
+  </thead>
+  <tbody>
+    <% @invites.each do |invite| %>
+      <tr>
+        <td><%= link_to invite.group.name, invite_path(invite), method: :delete, data: { confirm: 'グループに参加しますか？' } %></td>
+        <td><%= link_to image_tag('member.png', size:"32x32"), edit_group_path(invite.group.id) %>(<%= invite.group.users.count %>)</td>
+        <td><%= invite.user.username %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>	    
 
 <br><br>
 
@@ -19,7 +31,7 @@
   <thead>
     <tr>
       <th scope="col">グループ名</th>
-      <th scope="col">メンバー数</th>
+      <th scope="col">メンバー</th>
       <th scope="col">招待</th>
     </tr>
   </thead>
@@ -28,7 +40,7 @@
       <% if group.users.include?(current_user) %>
         <tr>
           <td><%= link_to group.name, group_path(group) %></td>
-          <td><%= image_tag 'member.png',width: '7%', height: '15%' %>×<%= group.users.count %></td>
+          <td><%= link_to image_tag('member.png', size:"32x32"), edit_group_path(group) %>(<%= group.users.count %>)</td>
           <td><%= link_to 'このグループに招待', new_invite_path(group_id: group) %></td>
         </tr>
       <% end %>  

@@ -2,6 +2,7 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
   def index
     @groups = Group.all.order(updated_at: :desc)
+    @invites = Invite.where(email: current_user.email)#招待された人を特定
   end
 
   def show
@@ -26,7 +27,28 @@ class GroupsController < ApplicationController
       @group.users << current_user
       redirect_to groups_path, notice: 'グループを作成しました'
     else
+      flash[:alert] = "グループ名を記入してください"
       render :new
+    end
+  end
+
+  def destroy
+    @group = Group.find(params[:id])
+    #current_userは、@group.usersから消されるという記述。
+    @group.users.delete(current_user)
+    redirect_to groups_path
+  end
+
+  def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to groups_path, notice: "編集しました"
+    else
+      render :edit
     end
   end
 

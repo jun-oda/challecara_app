@@ -7,16 +7,21 @@ class InvitesController < ApplicationController
   def create
     @invite = Invite.new(invite_params)
 
-    if @invite.save
+    if @invite.email != current_user.email
+      @invite.save
       flash[:notice] = "招待を送りました"
       redirect_to groups_path
     else
+      flash[:alert] = "正しいメールアドレスを入力してください"
       render :new
     end
   end
 
   def destroy
-
+    @invite = Invite.find(params[:id])
+    @invite.destroy
+    redirect_to group_path(@invite.group_id)
+    #redirect_to groups_path
   end
 
   private
