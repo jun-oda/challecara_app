@@ -1,3 +1,6 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
 <%= link_to "カレンダーへ", group_calendars_path(@calendar.group_id) %>
 <br>
 <br>
@@ -18,11 +21,10 @@
 
 <% end %>
 
-
+<div class="diary">
 <% @calendar_messages.each do |message| %>
-    <%= message.user.username %>:
-    <%= message.message %>
-    <%= image_tag message.image.to_s %>
     <%= message.created_at.to_s(:datetime) %>
-    <br>
-<% end %>
+    <%= message.user.username %>:
+    <div class = "messages"> <%= simple_format(message.message) %> </div>
+    <%= image_tag message.image.to_s %>
+<% end %></div>
