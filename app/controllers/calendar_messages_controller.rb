@@ -14,9 +14,9 @@ class CalendarMessagesController < ApplicationController
   end
 
   def destroy
-    @calendar_message = Calendar.find(params[:id])
-    @calendar_message.destroy
-    redirect_to calendars_path, notice:"削除しました"
+    #@calendar_message = Calendar.find(params[:id])
+    #@calendar_message.destroy
+    #redirect_to calendars_path, notice:"削除しました"
   end
   
   helper_method :destroy
