@@ -47,17 +47,10 @@
   background-color: burlywood;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
-p {
-  color:rgb(1, 37, 1);
-  font-size: 40px;
-  font-weight: bold;
-  background-color:rgb(243, 213, 138);
-  font-family: 'Sawarabi Mincho', sans-serif;
-}
+
 head{
   background-color:slategrey;
-  font-family: 'Sawarabi Mincho', sans-serif;
+
 }
 .col-6{
   background-color:rgb(243, 213, 138);
@@ -83,11 +76,7 @@ div{
   padding:  0px;
 }
 
-h2{
-  background-color: burlywood;
-  padding:  0px;
-  font-family: 'Sawarabi Mincho', sans-serif;
-}
+
 .navbar-expand-lg{
 background-color: burlywood;
 }
