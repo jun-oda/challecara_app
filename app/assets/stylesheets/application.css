@@ -28,3 +28,21 @@
     font-weight: bold;
   }
   
+  h2{
+    background-color: burlywood;
+    padding:  0px;
+    font-family: 'Sawarabi Mincho', sans-serif;
+  }
+.navbar-expand-lg{
+  background-color: burlywood;
+}
+.navbar-bland{
+  background-color: burlywood;
+}
+.navbar navbar-expand-lg navbar-dark bg-info{
+  background-color: burlywood;
+}
+
+.navbar navbar-expand-lg navbar-dark bg-info{
+  background-color: burlywood;
+}
