@@ -1,5 +1,6 @@
 <%= form_with(model: @calendar, local: true) do |form| %>
- 
+  <%= form.hidden_field :group_id, :value => @calendar.group.id %>
+  
   <div class="title">
     <%= form.label :イベント %>
     <%= form.text_field :title %>
