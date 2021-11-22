@@ -1,0 +1,10 @@
+.col-md-6.mx-auto 
+  .form-inline 
+  
+    = "一年前の今日は"
+    = linke_to 'こんな日', notification.calendar_message, 
+  
+  .small.text-muted.text-right 
+     = time_ago_in_words(notification.created_at).upcase
+  
+  hr

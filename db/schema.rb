@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_11_141731) do
+ActiveRecord::Schema.define(version: 2021_11_19_103942) do
 
   create_table "calendar_messages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "message"
@@ -56,6 +56,11 @@ ActiveRecord::Schema.define(version: 2021_11_11_141731) do
     t.string "email"
     t.index ["group_id"], name: "index_invites_on_group_id"
     t.index ["user_id"], name: "index_invites_on_user_id"
+  end
+
+  create_table "notifications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

@@ -11,6 +11,7 @@ class CalendarMessagesController < ApplicationController
   def create
     @calendar_message = CalendarMessage.create(calendar_message_params)
   #任意のmessagedb（CalendarMessageモデル）にmessageを追加？
+    calendar_messages.create_notification!(user)
     redirect_to calendar_calendar_messages_path
   end
 
