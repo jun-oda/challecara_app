@@ -35,8 +35,6 @@
 <% end %>
 </body>
 
-<div class = "page_bottom" id = 'page_bottom'></div>
-
 <% @calendar_messages.each do |message| %>
   <% if message.user.id == current_user.id %>
     <div class="d-flex justify-content-end">
@@ -54,3 +52,4 @@
   <% end %>
     <br>
 <% end %>
+<div class = "page_bottom" id = 'page_bottom'></div>

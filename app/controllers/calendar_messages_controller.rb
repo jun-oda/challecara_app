@@ -14,11 +14,12 @@ class CalendarMessagesController < ApplicationController
   #任意のmessagedb（CalendarMessageモデル）にmessageを追加？
     redirect_to calendar_calendar_messages_path(@calendar.id, anchor: 'page_bottom')
     @calendar_message = CalendarMessage.new(calendar_message_params)
+    @calendar = Calendar.find(params[:calendar_id])
     if @calendar_message.save
-      redirect_to calendar_calendar_messages_path
+      redirect_to calendar_calendar_messages_path(@calendar.id, anchor: 'page_bottom')
     else
       flash[:alert] = 'メッセージを入力してください'
-      redirect_to calendar_calendar_messages_path
+      redirect_to calendar_calendar_messages_path(@calendar.id, anchor: 'page_bottom')
     end  
   #任意のmessagedb（CalendarMessageモデル）にmessageを追加？
   end
