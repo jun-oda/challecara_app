@@ -21,7 +21,6 @@ class InvitesController < ApplicationController
     @invite = Invite.find(params[:id])
     @invite.destroy
     redirect_to group_path(@invite.group_id)
-    #redirect_to groups_path
   end
 
   private
