@@ -1,3 +1,71 @@
 // Place all the styles related to the calendar_messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.message_page {
+    background: linear-gradient(180deg, #6e4f31, #302114);;
+}
+
+.book {
+    padding: 24px;
+    background-color: #f3f3e9;
+    margin: 16px;
+    border: 5px solid;
+    border-top: transparent;
+    border-left: transparent;
+}
+
+.diary {
+    background-color: #f3f3e9;
+    font-family: 'Yomogi', cursive;
+}
+
+.messages {
+    background-color: #f3f3e9;
+    overflow-wrap: break-word;
+    background-image: linear-gradient(90deg, transparent 0%, transparent 50%, #f3f3e9 50%, #f3f3e9 100%),
+                    linear-gradient(180deg, #aaa 1px, transparent 1px);
+    background-size: 8px 100%,
+                    100% 2.5em;
+    line-height: 2.5em;
+    padding-bottom: 1px;
+}
+
+.bts {
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+.gotoCaledar {
+    padding: 12px 24px;
+    background: #6e4f31;
+    color: black;
+    border-radius: 10px;
+    border: 3px solid;
+    margin: 5px;
+    border-top: transparent;
+    border-left: transparent;
+}
+.gotoCaledar:hover{
+    background: orange;
+    color: black;
+}
+
+.up_button {
+    padding: 12px 24px;
+    background: #6e4f31;
+    color: black;
+    border-radius: 10px;
+    border: 3px solid;
+    margin: 5px;
+    border-bottom: transparent;
+    border-right: transparent;
+}
+.up_button:hover{
+    background: orange;
+    color: black;
+}
+
+.page_bottom {
+    margin-bottom: 100px;
+}
