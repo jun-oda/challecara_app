@@ -36,6 +36,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     #current_userは、@group.usersから消されるという記述。
     @group.users.delete(current_user)
+    flash[:notice] = "退会しました"
     redirect_to groups_path
   end
 

@@ -35,4 +35,25 @@
 <% end %>
 </body>
 
+<<<<<<< HEAD
 <div class = "page_bottom" id = 'page_bottom'></div>
+=======
+
+<% @calendar_messages.each do |message| %>
+  <% if message.user.id == current_user.id %>
+    <div class="d-flex justify-content-end">
+      <%= message.user.username %>:
+      <%= message.message %>
+      <%= image_tag message.image.to_s %>
+      <%= message.created_at.to_s(:datetime) %>
+      <%= link_to '削除', calendar_calendar_message_path(id: message.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+    </div>
+  <% else %> 
+    <%= message.user.username %>:
+    <%= message.message %>
+    <%= image_tag message.image.to_s %>
+    <%= message.created_at.to_s(:datetime) %>
+  <% end %>
+    <br>
+<% end %>
+>>>>>>> 5594aabbb795880139f95a218b94f1c4dd84f26e
