@@ -6,7 +6,6 @@
     background: linear-gradient(180deg, #6e4f31, #302114);;
 }
 
-
 .book {
     padding: 24px;
     background-color: #f3f3e9;
@@ -33,13 +32,15 @@
 }
 
 .bts {
-    margin-top:20px;
+    margin-left: 25vw;
+    margin-right: auto;
+    margin-top: 10px;
     margin-bottom: 20px;
 }
 
 .gotoCaledar {
-    padding: 12px 24px;
-    background: #6e4f31;
+    padding: 4px 24px;
+    background: #f3f3e9;
     color: black;
     border-radius: 10px;
     border: 3px solid;
@@ -53,8 +54,8 @@
 }
 
 .up_button {
-    padding: 12px 24px;
-    background: #6e4f31;
+    padding: 4px 24px;
+    background: #f3f3e9;
     color: black;
     border-radius: 10px;
     border: 3px solid;
@@ -69,4 +70,18 @@
 
 .page_bottom {
     margin-bottom: 100px;
+}
+
+.textarea{
+    margin-left: 25vw;
+    border-radius: 10px;
+    width: 50vw;
+}
+.submit{
+    margin-right: 25vw;
+}
+
+.f_field {
+    color: white;
+    margin-left: 25vw;
 }

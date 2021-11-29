@@ -10,9 +10,7 @@ class CalendarMessagesController < ApplicationController
 
   def create
     @calendar_message = CalendarMessage.new(calendar_message_params)
-    @calendar = Calendar.find(params[:calendar_id])
-  #任意のmessagedb（CalendarMessageモデル）にmessageを追加？
-    @calendar_message = CalendarMessage.new(calendar_message_params)
+    #任意のmessagedb（CalendarMessageモデル）にmessageを追加？
     @calendar = Calendar.find(params[:calendar_id])
     if @calendar_message.save
       redirect_to calendar_calendar_messages_path(@calendar.id, anchor: 'page_bottom')
@@ -20,7 +18,8 @@ class CalendarMessagesController < ApplicationController
       flash[:alert] = 'メッセージを入力してください'
       redirect_to calendar_calendar_messages_path(@calendar.id, anchor: 'page_bottom')
     end  
-  #任意のmessagedb（CalendarMessageモデル）にmessageを追加？
+  
+    
   end
   
   def destroy
