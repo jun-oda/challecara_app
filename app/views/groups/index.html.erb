@@ -36,6 +36,9 @@
     </tr>
   </thead>
   <tbody>
+  <% t = Time.new
+     t.month
+     t.day %>
 		<% @groups.each do |group| %>
       <% if group.users.include?(current_user) %>
         <tr>

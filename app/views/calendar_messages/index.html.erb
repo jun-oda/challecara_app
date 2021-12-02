@@ -4,6 +4,7 @@
 <body class = "message_page">
 <div class="book">
 <div class="diary">
+<h2><%= @calendar.title %></h2><br>
 <% @calendar_messages.each do |message| %>
   <% if message.user.id == current_user.id %>
     <div class="d-flex justify-content-end">
@@ -23,30 +24,8 @@
 </div>
 
 
+<%= render "calendar_messages/footer" %>
 
-<%= form_with(model: @calendar_message, url: calendar_calendar_messages_path, local: true) do |form| %>
-  <div style="display:inline-flex">
-  
-
-  
-    <div class="message">
-      <%= form.text_area :message, placeholder: "メッセージを入力", class: "textarea" %>
-    </div>
-    
-    <div class="submit">
-      <%= form.submit "送信" %>
-    </div>
-  </div>
-  
-  <div class="f_field">
-    <%= form.file_field :image %>
-  </div>
-  <div class="bts">
-  <%= link_to("カレンダーへ", group_calendars_path(@calendar.group_id), {class: "gotoCaledar"})%>
-  <a  class = "up_button" href = "#page_top">最上段から読む</a>
-  </div>
-
-<% end %>
 </body>
 
 <div class = "page_bottom" id = 'page_bottom'></div>
