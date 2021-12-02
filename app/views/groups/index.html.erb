@@ -38,7 +38,6 @@
   </thead>
   <tbody>
   <% day = Date.current %>
-  <p><%= day.prev_year %></p>
 		<% @groups.each do |group| %>
       <% if group.users.include?(current_user) %>
         <tr>
@@ -48,7 +47,7 @@
             <% @calendars.each do |calendar| %>
               <% event_time = calendar.start_time.strftime('%Y-%m-%d') %>
               <% if group.id == calendar.group_id && event_time.to_s == day.prev_year.to_s %>
-                <%= link_to calendar.title, calendar_calendar_messages_path(calendar.id) %>
+                <li><%= link_to calendar.title, calendar_calendar_messages_path(calendar.id) %></li>
               <% end %>
             <% end %>  
           </td>
