@@ -46,11 +46,13 @@
     margin: 5px;
     border-top: transparent;
     border-left: transparent;
+    text-decoration: none;
 }
 .gotoCaledar:hover{
     background: rgb(255, 228, 179);
     color: black;
     transition: 1.0s ;
+    text-decoration: none;
 }
 
 .up_button {
@@ -62,9 +64,11 @@
     margin: 5px;
     border-bottom: transparent;
     border-right: transparent;
+    text-decoration: none;
     
 }
 .up_button:hover{
+    text-decoration: none;
     background: rgb(255, 228, 179);
     color: black;
     transition: 1.0s ;

@@ -9,19 +9,13 @@ header
     height: 130%;
     background-color: tan;
 }
-.li:hover
-{
-    color: tan;
+
+.teamemodayo{
+    color:cadetblue;
+    font-family: 'Yomogi', cursive;
 }
-.li:link
-{
-    color:tan;
-}
-.ul:hover
-{
-    color:white;
-}
-.hdc:hover
-{
-    color:white;
+.teamemodayo:hover{
+    color:wheat;
+    transition: 1.0s ;
+    font-family: 'Yomogi', cursive;
 }
