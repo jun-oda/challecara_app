@@ -16,7 +16,7 @@
         <td><%= calendar.start_time.strftime("%Y-%m-%d %H:%M") %></td>
         <td><%= link_to '編集', edit_calendar_path(calendar.id) %>
         <%= link_to '削除',calendar_path(calendar.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-        <%= link_to "チャットへ", calendar_calendar_messages_path(calendar.id) %></td>
+        <%= link_to "チャットへ", calendar_calendar_messages_path(calendar.id, anchor: 'page_bottom') %></td>
       </tr>
     <% end %>
   </tbody>
