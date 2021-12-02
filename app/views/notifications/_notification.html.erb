@@ -1,8 +1,9 @@
 <div class = "col-md-6 mx-auto">
   <div class = "form-inline"> 
+    <span>
   
     <%= "一年前の今日は"%>
-    <%= linke_to 'こんな日', notification.calendar_message, %>
+    <%= linke_to 'こんな予定がありました', notification(calendar_message) do%>
   
     <small class = "text-muted text-right">
       <%= time_ago_in_words(notification.created_at).upcase%>

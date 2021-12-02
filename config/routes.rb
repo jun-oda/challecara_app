@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :calendar_messages, only: [:index, :create, :destroy]
     resources :users, only: [:index, :edit, :update]
     #resources :groups, only: [:new, :create, :edit, :update] # ここで設定する。
-    resources :notifications, only: :index
+    resources :notifications, only: [:index]
   end
 
   resources :invites, only: [:new, :create, :destroy]
