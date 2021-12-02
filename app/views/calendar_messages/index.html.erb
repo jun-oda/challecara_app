@@ -7,16 +7,14 @@
 <h2><%= @calendar.title %></h2><br>
 <% @calendar_messages.each do |message| %>
   <% if message.user.id == current_user.id %>
-    <div class="d-flex justify-content-end">
-      <%= message.user.username %>:
-      <%= message.created_at.to_s(:datetime) %>
-      <%= link_to '削除', calendar_calendar_message_path(id: message.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-      <div class = "messages"> <%= simple_format(message.message) %> </div>
-      <%= image_tag message.image.to_s %>
-    </div>
-  <% else %> 
     <%= message.user.username %>:
     <%= message.created_at.to_s(:datetime) %>
+    <%= link_to '削除', calendar_calendar_message_path(id: message.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+    <div class = "messages"> <%= simple_format(message.message) %> </div>
+    <%= image_tag message.image.to_s %>
+  <% else %> 
+    <%= message.created_at.to_s(:datetime) %>
+    <%= message.user.username %>:
     <div class = "messages"> <%= simple_format(message.message) %> </div>
     <%= image_tag message.image.to_s %>
   <% end %>

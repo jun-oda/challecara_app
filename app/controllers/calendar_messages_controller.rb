@@ -18,8 +18,6 @@ class CalendarMessagesController < ApplicationController
       flash[:alert] = 'メッセージを入力してください'
       redirect_to calendar_calendar_messages_path(@calendar.id, anchor: 'page_bottom')
     end  
-  
-    
   end
   
   def destroy

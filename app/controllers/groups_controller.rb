@@ -2,6 +2,7 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
   def index
     @groups = Group.all.order(updated_at: :desc)
+    @calendars = Calendar.all
     @invites = Invite.where(email: current_user.email)#招待された人を特定
   end
 

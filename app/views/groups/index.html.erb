@@ -44,9 +44,33 @@
         <tr>
           <td><%= link_to group.name, group_path(group) %></td>
           <td><%= link_to image_tag('member.png', size:"32x32"), edit_group_path(group) %>(<%= group.users.count %>)</td>
+          <td>
+            <% @calendars.each do |calendar| %>
+              <% if group.id == calendar.group_id  %>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    開く
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <%= calendar.title %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </td>
           <td><%= link_to 'このグループに招待', new_invite_path(group_id: group) %></td>
         </tr>
       <% end %>  
 		<% end %>
   </tbody>
 </table>	
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
