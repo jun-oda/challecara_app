@@ -48,8 +48,9 @@
     border-left: transparent;
 }
 .gotoCaledar:hover{
-    background: orange;
+    background: rgb(255, 228, 179);
     color: black;
+    transition: 1.0s ;
 }
 
 .up_button {
@@ -61,12 +62,15 @@
     margin: 5px;
     border-bottom: transparent;
     border-right: transparent;
+    
 }
 .up_button:hover{
-    background: orange;
+    background: rgb(255, 228, 179);
     color: black;
+    transition: 1.0s ;
 }
 
 .page_bottom {
     margin-bottom: 100px;
+    transition: 1.0s ;
 }
