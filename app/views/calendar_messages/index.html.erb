@@ -4,52 +4,63 @@
 <body class = "message_page">
 <div class="book">
 <div class="diary">
-<% @calendar_messages.each do |message| %>
-    <%= message.user.username %>
-    <%= message.created_at.to_s(:datetime) %>
-    <div class = "messages"> <%= simple_format(message.message) %> </div>
-    <%= image_tag message.image.to_s %>
-<% end %></div>
-</div>
-
-<div class="bts">
-<%= link_to("カレンダーへ", group_calendars_path(@calendar.group_id), {class: "gotoCaledar"})%>
-<a  class = "up_button" href = "#page_top">最上段から読む</a>
-</div>
-
-<%= form_with(model: @calendar_message, url: calendar_calendar_messages_path, local: true) do |form| %>
-  <div class="field">
-    <%= form.file_field :image %>
-  </div>
-
-  <div style="display:inline-flex">
-    <div class="message">
-      <%= form.text_area :message, placeholder: "メッセージを入力" %>
-    </div>
-    
-    <div class="submit">
-      <%= form.submit "送信" %>
-    </div>
-  </div>
-
-<% end %>
-</body>
-
+<h2><%= @calendar.title %></h2><br>
 <% @calendar_messages.each do |message| %>
   <% if message.user.id == current_user.id %>
     <div class="d-flex justify-content-end">
       <%= message.user.username %>:
-      <%= message.message %>
-      <%= image_tag message.image.to_s %>
       <%= message.created_at.to_s(:datetime) %>
       <%= link_to '削除', calendar_calendar_message_path(id: message.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      <div class = "messages"> <%= simple_format(message.message) %> </div>
+      <%= image_tag message.image.to_s %>
     </div>
   <% else %> 
     <%= message.user.username %>:
-    <%= message.message %>
-    <%= image_tag message.image.to_s %>
     <%= message.created_at.to_s(:datetime) %>
+    <div class = "messages"> <%= simple_format(message.message) %> </div>
+    <%= image_tag message.image.to_s %>
   <% end %>
-    <br>
+<% end %></div>
+</div>
+
+
+<%= render "calendar_messages/footer" %>
+
+<table>
+
+  <thead>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="members.scss" type="text/css">
+  </thead>
+
+  <tbody>
+    <% @allmessages.each do |message| %>
+      <tr>
+        
+        <td><%= message.message%></td>
+        <td><%= link_to 'Destroy', destroy, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+  <div class="field">
+    <%= form.file_field :image %>
+  </div>
+
+
+  <div class="message">
+    <%= form.text_field :message, placeholder: "メッセージを入力" %>
+  </div>
+  
+  <div class="submit">
+    <%= form.submit "送信" %>
+  </div>
+
+
+
 <% end %>
-<div class = "page_bottom" id = 'page_bottom'></div>
+
+
