@@ -8,7 +8,7 @@
 .btn_color{
     padding: 12px 24px;
     background: #6e4f31;
-    color: black;
+    color:tan;
     border-radius: 10px;
     border: 3px solid;
     width:200px;
@@ -17,4 +17,6 @@
 .btn_color:hover {
     background-color:tan;
     width:200px;
+    transition: 1.0s ;
+    color:coral;
 }

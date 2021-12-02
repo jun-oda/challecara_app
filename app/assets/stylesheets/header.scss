@@ -3,3 +3,19 @@ header
     background-color: rgb(68, 52, 41);
     color:black;
 }
+.container
+{
+    width: 150%;
+    height: 130%;
+    background-color: tan;
+}
+
+.teamemodayo{
+    color:cadetblue;
+    font-family: 'Yomogi', cursive;
+}
+.teamemodayo:hover{
+    color:wheat;
+    transition: 1.0s ;
+    font-family: 'Yomogi', cursive;
+}

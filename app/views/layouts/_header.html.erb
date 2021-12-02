@@ -1,17 +1,18 @@
 <header name = "page_top">
 
   <div>
-    <%= link_to "teamemo", root_path %>
+    <%= link_to "teamemo", root_path, class: "teamemodayo"%>
+    
     <div>
       <ul>
         <% if user_signed_in? %>
-          <li><%= link_to 'トップページ', root_path %></li>
-          <li><%= link_to 'グループ', groups_path %></li>
-          <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <li class="hdc"><%= link_to 'トップページ', root_path, class: "teamemodayo"%></li>
+          <li><%= link_to 'グループ', groups_path, class: "teamemodayo" %></li>
+          <li><%= link_to 'プロフィール変更', edit_user_registration_path, class: "teamemodayo" %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "teamemodayo" %></li>
         <% else %>
-          <li><%= link_to '新規ユーザー登録', new_user_registration_path %></li>
-          <li><%= link_to 'ログイン', new_user_session_path %></li>
+          <li><%= link_to '新規ユーザー登録', new_user_registration_path , class: "teamemodayo"%></li>
+          <li><%= link_to 'ログイン', new_user_session_path, class: "teamemodayo" %></li>
         <% end %>
       </ul>
     </div>
