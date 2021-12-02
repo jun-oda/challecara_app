@@ -1,4 +1,30 @@
-<%= form_with(model: @calendar_message, url: calendar_calendar_messages_path, local: true) do |form| %>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+<body class = "message_page">
+<div class="book">
+<div class="diary">
+<h2><%= @calendar.title %></h2><br>
+<% @calendar_messages.each do |message| %>
+  <% if message.user.id == current_user.id %>
+    <div class="d-flex justify-content-end">
+      <%= message.user.username %>:
+      <%= message.created_at.to_s(:datetime) %>
+      <%= link_to '削除', calendar_calendar_message_path(id: message.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      <div class = "messages"> <%= simple_format(message.message) %> </div>
+      <%= image_tag message.image.to_s %>
+    </div>
+  <% else %> 
+    <%= message.user.username %>:
+    <%= message.created_at.to_s(:datetime) %>
+    <div class = "messages"> <%= simple_format(message.message) %> </div>
+    <%= image_tag message.image.to_s %>
+  <% end %>
+<% end %></div>
+</div>
+
+
+<%= render "calendar_messages/footer" %>
 
 <table>
 

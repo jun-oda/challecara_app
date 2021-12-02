@@ -1,0 +1,52 @@
+<br>
+<div><%=link_to "グループを作成する",new_group_path %></div>
+<br>
+
+<h4>知り合いのグループかも？</h4>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">グループ名</th>
+      <th scope="col">メンバー</th>
+      <th scope="col">招待を送ったユーザー</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @invites.each do |invite| %>
+      <tr>
+        <td><%= link_to invite.group.name, invite_path(invite), method: :delete, data: { confirm: 'グループに参加しますか？' } %></td>
+        <td><%= link_to image_tag('member.png', size:"32x32"), edit_group_path(invite.group.id) %>(<%= invite.group.users.count %>)</td>
+        <td><%= invite.user.username %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>	    
+
+<br><br>
+
+<h2>グループ一覧</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">グループ名</th>
+      <th scope="col">メンバー</th>
+      <th scope="col">招待</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% t = Time.new
+     t.month
+     t.day %>
+		<% @groups.each do |group| %>
+      <% if group.users.include?(current_user) %>
+        <tr>
+          <td><%= link_to group.name, group_path(group) %></td>
+          <td><%= link_to image_tag('member.png', size:"32x32"), edit_group_path(group) %>(<%= group.users.count %>)</td>
+          <td><%= link_to 'このグループに招待', new_invite_path(group_id: group) %></td>
+        </tr>
+      <% end %>  
+		<% end %>
+  </tbody>
+</table>	

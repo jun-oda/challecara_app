@@ -218,6 +218,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  mini_magick
   mysql2 (~> 0.5)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
@@ -231,7 +232,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 2.7.4p191
+   ruby 2.7.5p203
 
 BUNDLED WITH
    2.1.4

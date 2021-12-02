@@ -1,3 +1,4 @@
 class Calendar < ApplicationRecord
-  has_one :calendar_message
+  has_many :calendar_messages, dependent: :destroy
+  belongs_to :group
 end
