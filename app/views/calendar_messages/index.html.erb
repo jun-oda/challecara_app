@@ -26,6 +26,41 @@
 
 <%= render "calendar_messages/footer" %>
 
-</body>
+<table>
 
-<div class = "page_bottom" id = 'page_bottom'></div>
+  <thead>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="members.scss" type="text/css">
+  </thead>
+
+  <tbody>
+    <% @allmessages.each do |message| %>
+      <tr>
+        
+        <td><%= message.message%></td>
+        <td><%= link_to 'Destroy', destroy, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+  <div class="field">
+    <%= form.file_field :image %>
+  </div>
+
+
+  <div class="message">
+    <%= form.text_field :message, placeholder: "メッセージを入力" %>
+  </div>
+  
+  <div class="submit">
+    <%= form.submit "送信" %>
+  </div>
+
+
+
+<% end %>
+
+
