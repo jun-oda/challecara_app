@@ -1,6 +1,6 @@
 class CalendarMessagesController < ApplicationController
   before_action :authenticate_user!
-  def index    
+  def index  
     @calendar_message = CalendarMessage.new
     @calendar = Calendar.find(params[:calendar_id])
     #message保存用のdb（CalendarMessageモデル）新規作成？
@@ -11,7 +11,8 @@ class CalendarMessagesController < ApplicationController
   def create
     @calendar_message = CalendarMessage.create(calendar_message_params)
   #任意のmessagedb（CalendarMessageモデル）にmessageを追加？
-    calendar_messages.create_notification!(user)
+    calendar_message.create_notification!(current_user)
+    #予定を作成した時点で通知を作成
     redirect_to calendar_calendar_messages_path
   end
 

@@ -1,5 +1,7 @@
+<!--<%= model: @notification, url: calendar_notification_path(params[:group_id],params[:calendar_id]), local: true %>-->
 
-<%= model: @notification, url: notification_path, local: true %>
+
+
 
 <h2>Notification</h2>
 <%=@notifications each do |notifications|%>
@@ -8,5 +10,6 @@
 <!-- = paginate notifications -->
 <% else %>
 <P>| 通知はありません</p>
+
 
 

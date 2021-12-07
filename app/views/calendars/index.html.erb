@@ -19,9 +19,9 @@
       </tr>
     <% end %>
   </tbody>
-</table>	
+</table>
 
-<%= link_to '通知', notification_path %>
+<%= link_to '通知', calendar_notifications_path(params[:group_id],params[:calendar_id])%>
 
 <%= link_to 'イベント追加', new_group_calendar_path %>
 
