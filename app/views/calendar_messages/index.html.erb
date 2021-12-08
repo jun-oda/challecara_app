@@ -1,21 +1,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
-<body class = "message_page">
+
 <div class="book">
-<div class="diary">
-<h2><%= @calendar.title %></h2><br>
+<div class="diary col-b">
+<h2 class="col-b"><%= @calendar.title %></h2><br>
 <% @calendar_messages.each do |message| %>
   <% if message.user.id == current_user.id %>
     <%= message.user.username %>:
     <%= message.created_at.to_s(:datetime) %>
-    <%= link_to '削除', calendar_calendar_message_path(id: message.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-    <div class = "messages"> <%= simple_format(message.message) %> </div>
+    <%= link_to('Delete', calendar_calendar_message_path(id: message.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "del") %>
+    <div class = "messages"> <%= simple_format(message.message, class: "col-b") %> </div>
     <%= image_tag message.image.to_s %>
   <% else %> 
     <%= message.created_at.to_s(:datetime) %>
     <%= message.user.username %>:
-    <div class = "messages"> <%= simple_format(message.message) %> </div>
+    <div class = "messages"> <%= simple_format(message.message, class: "col-b") %> </div>
     <%= image_tag message.image.to_s %>
   <% end %>
 <% end %></div>

@@ -1,18 +1,21 @@
-<header class="navbar navbar-expand-lg navbar-dark bg-dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+<header class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
-    <%= link_to "teamemo", root_path, class:"navbar-brand"%>
+    <%= link_to "TeaMemo", root_path, class:"bName"%>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav hLinks">
         <% if user_signed_in? %>
-          <li class="nav-item nav-link active"><%= link_to 'グループ', groups_path %></li> 
-          <li class="nav-item nav-link active"><%= link_to 'プロフィール変更', edit_user_registration_path %></li> 
-          <li class="nav-item nav-link active"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <li class="hLinks"><%= link_to 'グループ', groups_path, class: "hLinks" %></li> 
+          <li class="hLinks"><%= link_to 'プロフィール変更', edit_user_registration_path, class: "hLinks" %></li> 
+          <li class="hLinks"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "hLinks" %></li>
         <% else %>
-          <li class="nav-item nav-link active"><%= link_to '新規ユーザー登録', new_user_registration_path %></li>
-          <li class="nav-item nav-link active"><%= link_to 'ログイン', new_user_session_path %></li>
+          <li class="hLinks"><%= link_to '新規ユーザー登録', new_user_registration_path, class: "hLinks" %></li>
+          <li class="hLinks"><%= link_to 'ログイン', new_user_session_path, class: "hLinks" %></li>
         <% end %>
       </ul>
     </div>

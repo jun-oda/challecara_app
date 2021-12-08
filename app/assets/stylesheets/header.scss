@@ -1,7 +1,6 @@
 header
 {
-    background-color: rgb(68, 52, 41);
-    color:black;
+    background-color: #261414;
 }
 .container
 {
@@ -18,4 +17,24 @@ header
     color:wheat;
     transition: 1.0s ;
     font-family: 'Yomogi', cursive;
+}
+
+.hLinks {
+    text-decoration: none;
+    color: #ffd700;
+    text-align: right;
+    padding: 8px;
+}
+
+
+.bName {
+    font-family: 'Ubuntu', sans-serif;
+    text-decoration: none;
+    color: #f3f3e9;
+    font-size: 32px;
+    padding: 5px;
+}
+
+.hLinks {
+    margin: 0 0 0 auto;
 }

@@ -2,9 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.message_page {
-    background: linear-gradient(180deg, #6e4f31, #302114);;
-}
 
 .book {
     padding: 24px;
@@ -63,16 +60,16 @@
     border-radius: 10px;
     border: 3px solid;
     margin: 5px;
-    border-bottom: transparent;
-    border-right: transparent;
+    border-top: transparent;
+    border-left: transparent;
     text-decoration: none;
     
 }
 .up_button:hover{
-    text-decoration: none;
     background: rgb(255, 228, 179);
     color: black;
     transition: 1.0s ;
+    text-decoration: none;
 }
 
 .page_bottom {
@@ -92,4 +89,12 @@
 .f_field {
     color: white;
     margin-left: 25vw;
+}
+
+.del {
+    font-size: 1px;
+    text-decoration: none;
+    border-radius: 3px;
+    border: 1px solid;
+    color: black;
 }
