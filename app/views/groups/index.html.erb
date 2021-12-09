@@ -15,8 +15,8 @@
   <tbody>
     <% @invites.each do |invite| %>
       <tr>
-        <td><%= link_to(invite.group.name, invite_path(invite), {class: "nlink"}, method: :delete, data: { confirm: 'グループに参加しますか？' })%></td>
-        <td><%= link_to(image_tag('member.png', size:"32x32"), edit_group_path(invite.group.id), {class: "nlink"}) %>(<%= invite.group.users.count %>)</td>
+        <td><%= link_to invite.group.name, invite_path(invite), method: :delete, data: { confirm: 'グループに参加しますか？' }%></td>
+        <td><%= link_to image_tag('member.png', size:"32x32"), edit_group_path(invite.group.id) %>(<%= invite.group.users.count %>)</td>
         <td><%= invite.user.username %></td>
       </tr>
     <% end %>
