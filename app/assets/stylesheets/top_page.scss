@@ -1,35 +1,97 @@
 // Place all the styles related to the top_page controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.toplogo {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 80px;
+    text-align: center;
+    margin-top: 14vw;
+    margin-bottom: 8vw;
+}
+
+
+.center{
+    text-align: center;
+    margin-top: 16vw;
+    margin-bottom: 16vw;
+}
+.topbtns {
+    display: flex;
+    justify-content: center
+}
+
 .btn {
     margin: 10px;
 }
 
 .btn_color{
     padding: 12px 24px;
-    background: #6e4f31;
-    color:tan;
+    background: #f3f3e9;
+    color:black;
     border-radius: 10px;
-    border: 3px solid;
     width:200px;
+    text-decoration: none;
 }
 
 .btn_color:hover {
-    background-color:tan;
+    background-color:rgb(255, 228, 179);
     width:200px;
-    transition: 1.0s ;
-    color:coral;
+    transition: 0.5s ;
+    color: black;
 }
 
 .site_bg {
     background: #735848;
 }
 
-* {
-    color: #f3f3e9;
-}
 
 .col-b {
     color: black;
 }
 
+.ale {
+    background-color: #f3f3e9;
+    padding: 10px;
+    color: black;
+}
+
+.fuwafuwa {
+    animation: fuwafuwa 3s infinite ease-in-out .8s alternate;
+    background: url(../img/ico-apple.svg) no-repeat center center / 60px auto;
+    display: inline-block;
+    transition: 1.5s ease-in-out;
+    margin-top: 15px;
+  }
+   
+  @keyframes fuwafuwa {
+    0% {
+      transform:translate(0, 0) rotate(-4deg);
+    }
+    50% {
+      transform:translate(0, -4px) rotate(0deg);
+    }
+    100% {
+      transform:translate(0, 0) rotate(4deg);
+    }
+  }
+   
+.nlink {
+    text-align: right;
+    padding: 2px;
+    margin: 0 0 0 auto;
+    background: #f3f3e9;
+    color:black;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.nlink:hover {
+    background: rgb(255, 228, 179);
+    color: black;
+    transition: 0.5s ;
+    text-decoration: none;
+}
+
+h1 {
+    color: #f3f3e9;
+}

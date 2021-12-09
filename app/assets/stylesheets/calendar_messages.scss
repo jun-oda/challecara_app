@@ -40,16 +40,13 @@
     background: #f3f3e9;
     color: black;
     border-radius: 10px;
-    border: 3px solid;
     margin: 5px;
-    border-top: transparent;
-    border-left: transparent;
     text-decoration: none;
 }
 .gotoCaledar:hover{
     background: rgb(255, 228, 179);
     color: black;
-    transition: 1.0s ;
+    transition: 0.5s ;
     text-decoration: none;
 }
 
@@ -58,17 +55,14 @@
     background: #f3f3e9;
     color: black;
     border-radius: 10px;
-    border: 3px solid;
     margin: 5px;
-    border-top: transparent;
-    border-left: transparent;
     text-decoration: none;
     
 }
 .up_button:hover{
     background: rgb(255, 228, 179);
     color: black;
-    transition: 1.0s ;
+    transition: 0.5s ;
     text-decoration: none;
 }
 
@@ -78,6 +72,7 @@
 }
 
 .textarea{
+    color: black;
     margin-left: 25vw;
     border-radius: 10px;
     width: 50vw;
