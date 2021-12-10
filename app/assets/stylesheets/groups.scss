@@ -19,3 +19,20 @@ th, td {
 .groupg {
     border: solid;
 }
+
+.mkgroup {
+    padding: 4px 24px;
+    background: #f3f3e9;
+    color: black;
+    border-radius: 10px;
+    margin: 5px;
+    text-decoration: none;
+    margin-left: 5vw;
+}
+
+.mkgroup:hover {
+    background: rgb(255, 228, 179);
+    color: black;
+    transition: 0.5s ;
+    text-decoration: none;
+}
