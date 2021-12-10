@@ -4,17 +4,17 @@
 
 <h4>知り合いのグループかも？</h4>
 
-<table class="table table-striped">
+<table class="grouptable">
   <thead>
-    <tr>
-      <th scope="col">グループ名</th>
-      <th scope="col">メンバー</th>
-      <th scope="col">招待を送ったユーザー</th>
+    <tr class="groupg">
+      <th>グループ名</th>
+      <th>メンバー</th>
+      <th>招待を送ったユーザー</th>
     </tr>
   </thead>
   <tbody>
     <% @invites.each do |invite| %>
-      <tr>
+      <tr class="groupg">
         <td><%= link_to invite.group.name, invite_path(invite), method: :delete, data: { confirm: 'グループに参加しますか？' }%></td>
         <td><%= link_to image_tag('member.png', size:"32x32"), edit_group_path(invite.group.id) %>(<%= invite.group.users.count %>)</td>
         <td><%= invite.user.username %></td>
@@ -27,20 +27,20 @@
 
 <h2>グループ一覧</h2>
 
-<table class="table table-striped">
+<table class="grouptable">
   <thead>
-    <tr>
-      <th scope="col">グループ名</th>
-      <th scope="col">メンバー</th>
-      <th scope="col">1年前は何をしてた?</th>
-      <th scope="col">招待</th>
+    <tr class="groupg">
+      <th>グループ名</th>
+      <th>メンバー</th>
+      <th>1年前は何をしてた?</th>
+      <th>招待</th>
     </tr>
   </thead>
   <tbody>
   <% day = Date.current %>
 		<% @groups.each do |group| %>
       <% if group.users.include?(current_user) %>
-        <tr>
+        <tr class="groupg">
           <td><%= link_to(group.name, group_path(group), {class: "nlink"}) %></td>
           <td><%= link_to(image_tag('member.png', size:"32x32"), edit_group_path(group)) %>(<%= group.users.count %>)</td>
           <td>
