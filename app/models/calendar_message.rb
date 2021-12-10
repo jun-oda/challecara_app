@@ -7,7 +7,7 @@ class CalendarMessage < ApplicationRecord
 
   has_one :notifications, dependent: :destroy
 
-  def create_notification!(user)
+  def create_notification!(current_user)
     temp = Notification.where(["user_id = ? and calendar_messages_id = ? and action = ?", user_id, calendar_messages_id, 'notification'])
 
     if temp.blank?
