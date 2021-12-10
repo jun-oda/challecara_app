@@ -13,10 +13,10 @@
     <div class = "messages"> <%= simple_format(message.message, class: "col-b") %> </div>
     <div><%= image_tag message.image.to_s %></div>
   <% else %> 
-    <%= message.created_at.to_s(:datetime) %>
     <%= message.user.username %>:
+    <%= message.created_at.to_s(:datetime) %>
     <div class = "messages"> <%= simple_format(message.message, class: "col-b") %> </div>
-    <%= image_tag message.image.to_s %>
+    <div><%= image_tag message.image.to_s %></div>
   <% end %>
 <% end %></div>
 </div>
