@@ -11,7 +11,7 @@
     <%= message.created_at.to_s(:datetime) %>
     <%= link_to('Delete', calendar_calendar_message_path(id: message.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "del") %>
     <div class = "messages"> <%= simple_format(message.message, class: "col-b") %> </div>
-    <%= image_tag message.image.to_s %>
+    <div><%= image_tag message.image.to_s %></div>
   <% else %> 
     <%= message.created_at.to_s(:datetime) %>
     <%= message.user.username %>:

@@ -23,7 +23,7 @@
 </table>	
 
 
-<%= link_to 'イベント追加', new_group_calendar_path %>
+<%= link_to 'イベント追加', new_group_calendar_path,{class: "nlink"} %>
 
 <%= month_calendar events: @calendars do |date, calendars| %>
   <%= date.day %>
