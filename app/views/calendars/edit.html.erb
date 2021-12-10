@@ -25,5 +25,6 @@
 <% end %>
 
 <br>
-<%= link_to "カレンダーへ", group_calendars_path(@calendar.group_id) %>
-<%= link_to "チャットへ", calendar_calendar_messages_path(@calendar.id, anchor: 'page_bottom') %>
+
+<%= link_to("カレンダーへ", group_calendars_path(@calendar.group_id), {class: "gotoCaledar"})%>
+<%= link_to("チャットへ", calendar_calendar_messages_path(@calendar.id, anchor: 'page_bottom'), {class: "gotoCaledar"}) %>
